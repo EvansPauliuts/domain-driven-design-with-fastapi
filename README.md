@@ -1,2 +1,2 @@
-# domain-driven-design-with-flaskrestful
-This design patterns domain driven with Flask-RESTful API
+# domain-driven-design-with-fastapi
+This design architecture patterns domain driven with FastAPI RESTful
