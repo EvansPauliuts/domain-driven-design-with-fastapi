@@ -4,19 +4,22 @@ SYSTEM_PYTHON  = $(or $(shell which python3), $(shell which python))
 PYTHON         = $(or $(wildcard $(VENV_PYTHON)), $(SYSTEM_PYTHON))
 POETRY         := $(shell command -v poetry 2> /dev/null)
 
-PHONY: lint black lint isort mypy run
+PHONY: lint black lint isort mypy run requirements
 
 black:
 	$(POETRY) run black . $(args)
 
 lint:
-	poetry run flake8 $(args)
+	$(POETRY) run flake8 $(args)
 
 isort:
-	poetry run isort . $(args)
+	$(POETRY) run isort . $(args)
 
 mypy:
-	poetry run mypy . $(args)
+	$(POETRY) run mypy . $(args)
+
+requirements:
+	$(POETRY) export --without-hashes --only main -f requirements.txt -o requirements.txt
 
 run:
 	@echo 'Running app'
