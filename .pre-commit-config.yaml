@@ -21,7 +21,7 @@ repos:
   rev: 23.3.0
   hooks:
     - id: black
-      args: ['-S', '-l 79']
+      args: ['-S', '-l 120']
 
 - repo: https://github.com/pycqa/isort
   rev: 5.12.0

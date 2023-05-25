@@ -28,8 +28,7 @@ class Settings(BaseSettings):
     POSTGRES_USER: str = os.getenv('POSTGRES_USER')
     POSTGRES_PASSWORD: str = os.getenv('POSTGRES_PASSWORD')
     DATABASE_CONN_STRING: str = (
-        f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}'
-        f'@{POSTGRES_DB}:{POSTGRES_PORT}/{POSTGRES_NAME}'
+        f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}' f'@{POSTGRES_DB}:{POSTGRES_PORT}/{POSTGRES_NAME}'
     )
 
     class Config:

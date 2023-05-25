@@ -9,24 +9,17 @@ router = APIRouter(
 )
 
 
-@router.get(
-    '/', response_model=list[BookSchema], status_code=status.HTTP_200_OK
-)
+@router.get('/', response_model=list[BookSchema], status_code=status.HTTP_200_OK)
 def list_book(
     name: str | None = None,
     page_size: int | None = 100,
     start_index: int | None = 0,
     book_service: BookService = Depends(),
 ):
-    return [
-        book.normalize()
-        for book in book_service.list(name, page_size, start_index)
-    ]
+    return [book.normalize() for book in book_service.list(name, page_size, start_index)]
 
 
-@router.post(
-    '/', response_model=BookSchema, status_code=status.HTTP_201_CREATED
-)
+@router.post('/', response_model=BookSchema, status_code=status.HTTP_201_CREATED)
 def create(
     book: BookPostSchema,
     book_service: BookService = Depends(),
