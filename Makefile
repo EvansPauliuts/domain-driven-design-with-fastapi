@@ -24,6 +24,24 @@ mypy:
 requirements:
 	$(POETRY) export --without-hashes --only main -f requirements.txt -o requirements.txt
 
+.PHONY: build run stop rm clean
+
+build:
+	docker-compose -f $(DOCKER_COMPOSE_FILE) build
+
+run:
+	docker-compose -f $(DOCKER_COMPOSE_FILE) up -d
+
+stop:
+	docker-compose -f $(DOCKER_COMPOSE_FILE) down
+
+rm:
+	docker-compose -f $(DOCKER_COMPOSE_FILE) down -v --remove-orphans
+
+clean:
+	docker system prune -af --volumes
+	docker network prune -f
+
 .PHONY: run
 
 run:
