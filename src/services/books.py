@@ -6,8 +6,6 @@ from src.models.books import Book
 from src.repositories.books import BookRepository
 from src.schemas.books import BookSchema
 
-# from src.repositories.repository import RepositoryMeta
-
 
 class BookService:
     book_repository: BookRepository
