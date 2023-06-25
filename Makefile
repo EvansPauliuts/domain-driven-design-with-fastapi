@@ -47,3 +47,8 @@ clean:
 run:
 	@echo 'Running app'
 	$(POETRY) run uvicorn src.main:app --reload --host 0.0.0.0
+
+.PHONY: autoupdate
+
+autoupdate:
+	pre-commit autoupdate
