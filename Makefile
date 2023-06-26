@@ -42,13 +42,16 @@ clean:
 	docker system prune -af --volumes
 	docker network prune -f
 
-.PHONY: run
+.PHONY: run-app
 
-run:
+run-app:
 	@echo 'Running app'
 	$(POETRY) run uvicorn src.main:app --reload --host 0.0.0.0
 
-.PHONY: autoupdate
+.PHONY: autoupdate all-files
 
 autoupdate:
 	pre-commit autoupdate
+
+all-files:
+	pre-commit run --all-files
